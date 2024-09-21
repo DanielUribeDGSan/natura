@@ -1,0 +1,43 @@
+// __________________________________ colors ____________________________________
+
+$colors: (
+  common: (
+    white: #ffffff,
+    black: #000000,
+    purple: #8234ce,
+    blue: #4781ff,
+    blueStrong: #08285b,
+    cyan: #35cbcc,
+    green: #4fc974,
+    yellow: #fdbf02,
+    orange: #f74e4f,
+    pink: #d4168e,
+    border: #e4e4e4,
+    gray: #7e858b,
+    gray-light: #f8f8f8,
+    theme-blue: #4780ff,
+    theme-purple: #8234cf,
+  ),
+  heading: (
+    primary: #292930,
+  ),
+  grey: (
+    1: #f7f8fd,
+    2: #f8f8f8,
+  ),
+  text: (
+    body: #000000,
+    p: #000000,
+  ),
+  theme: (
+    1: #eb8219,
+    2: #ffd3b1,
+  ),
+  border: (
+    1: #e8ecf2,
+  ),
+);
+
+@function color($category, $color) {
+  @return map-get(map-get($colors, $category), $color);
+}

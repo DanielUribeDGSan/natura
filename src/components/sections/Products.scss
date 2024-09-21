@@ -1,0 +1,23 @@
+@import "../../assets/scss/colors.scss";
+.main-products {
+  @media (max-width: 700px) {
+    padding: 0 2%;
+  }
+  .content-rectangle {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .rectangle {
+    background-color: color(theme, 2);
+    height: 350px;
+    width: 100%;
+
+    @media (max-width: 700px) {
+      height: 150px;
+    }
+  }
+
+  .title-product {
+    margin-bottom: 5%;
+  }
+}

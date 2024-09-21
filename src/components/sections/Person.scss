@@ -1,0 +1,18 @@
+@import "../../assets/scss/colors.scss";
+
+.main-person {
+  @media (max-width: 700px) {
+    padding: 0 2%;
+  }
+  .circle-lg {
+    background-color: color(theme, 2);
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+
+    @media (max-width: 700px) {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}

@@ -1,0 +1,262 @@
+@import "bootstrap/scss/bootstrap.scss";
+@import "./assets/scss/colors.scss";
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// __________________________________ fonts ____________________________________
+
+@font-face {
+  font-family: "HelveticaNowDisplay";
+  src: url("/assets/fonts/HelveticaNowDisplay.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNowDisplayMedium";
+  src: url("/assets/fonts/HelveticaNowDisplayMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNowDisplayBold";
+  src: url("/assets/fonts/HelveticaNowDisplayBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+*,
+html,
+body,
+p,
+span,
+div,
+a,
+img,
+button,
+input,
+textarea {
+  font-family: "HelveticaNowDisplay", sans-serif;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "HelveticaNowDisplayBold", sans-serif;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+
+// __________________________________ classes ____________________________________
+
+.container-questions {
+  height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+
+  @media (max-width: 700px) {
+    height: 100% !important;
+    max-height: 100% !important;
+  }
+}
+
+.bg-theme1 {
+  background-color: color(theme, 1);
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 3.3rem;
+
+  @media (max-width: 700px) {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 1.7rem;
+    line-height: 1.8rem;
+  }
+}
+
+.container-principal {
+  padding: 5% 10%;
+  @media (max-width: 800px) {
+    padding: 5% 5%;
+  }
+}
+
+.container-logo {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  width: 100%;
+  @media (max-width: 800px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    margin-top: 2%;
+  }
+}
+
+.main-evenly {
+  height: calc(100% - 10%);
+  min-height: 100vh - 18vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  h2 {
+    margin-top: 5%;
+    @media (max-width: 700px) {
+      margin-top: 0%;
+    }
+  }
+  .center-content {
+    img {
+      @media (max-width: 700px) {
+        width: 50%;
+      }
+    }
+  }
+  .button-content {
+    margin-top: 5%;
+  }
+}
+.main-between {
+  height: calc(100% - 10%);
+  min-height: 100vh - 18vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 700px) {
+    justify-content: space-evenly;
+  }
+
+  h2 {
+    margin-top: 5%;
+    @media (max-width: 700px) {
+      margin-top: 0%;
+    }
+  }
+  .center-content {
+    img {
+      @media (max-width: 700px) {
+        width: 50%;
+      }
+    }
+  }
+  .button-content {
+    margin-top: 5%;
+  }
+}
+
+.radio-buttons {
+  &__title {
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+  }
+
+  &__fields {
+    border-radius: 0.375rem;
+    padding: 0.375rem;
+
+    &--required {
+      border: solid 0.125rem $primary;
+      box-shadow: 0px 0.375rem 0.3125rem #eb002921;
+    }
+  }
+
+  label {
+    border: solid 0.125rem $secondary;
+    margin: 0;
+    font-size: 1.9rem;
+    line-height: 2.1rem;
+    font-family: "HelveticaNowDisplayBold", sans-serif;
+  }
+
+  input[type="radio"] {
+    display: none;
+    margin: 0;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  label {
+    border: none;
+    border-radius: 2rem;
+    min-width: 10rem;
+    color: color(common, black);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    user-select: none;
+    text-align: left;
+
+    @media (max-width: 700px) {
+      font-size: 1.5rem;
+      line-height: 1.7rem;
+    }
+    @media (max-width: 375px) {
+      font-size: 1.3rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  input[type="radio"]:checked + label {
+    border: solid 0.125rem color(theme, 1);
+    color: color(theme, 1);
+    background-color: white;
+  }
+}
+.bg-image {
+  position: absolute;
+  width: calc(100%);
+  height: calc(100%);
+  object-fit: cover;
+  filter: blur(2px);
+}
+
+// __________________________________ buttons ____________________________________
+
+.btn-circle {
+  min-width: 300px;
+  padding: 13px 50px;
+  border: 0px;
+  border-radius: 30px;
+  font-family: "HelveticaNowDisplayMedium", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 700px) {
+    min-width: 200px;
+    font-size: 1.2rem;
+    padding: 12px 25px;
+  }
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

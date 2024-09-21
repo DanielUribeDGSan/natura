@@ -1,0 +1,17 @@
+@import "../../assets/scss/colors.scss";
+
+.main-questions {
+  padding: 0 10%;
+
+  @media (max-width: 700px) {
+    padding: 0 2%;
+  }
+  h2 {
+    @media (max-width: 700px) {
+      margin-top: 1rem !important;
+    }
+  }
+  @media (max-width: 700px) {
+    padding: 0 2%;
+  }
+}
