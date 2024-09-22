@@ -8,6 +8,7 @@ import { settings } from "../../settings";
 
 interface Props {
   setSections: React.Dispatch<React.SetStateAction<number>>;
+  sections: number;
 }
 
 interface Audio {
@@ -17,22 +18,32 @@ interface Audio {
   orden: string;
 }
 
-export const Circles = ({ setSections }: Props) => {
+export const Circles = ({ setSections, sections }: Props) => {
   const [audios, setAudios] = useState<Audio[]>([]);
   const { updateSection, updateCurrentSection } = usePaymentStorage(1);
   const [loading, setLoading] = useState(false);
 
-  const handleClick = (idAudio: string) => {
-    updateSection(1, [{ nameField: "audio", value: idAudio }], 1);
+  const handleClick = (idAudio: string, orden: string) => {
+    updateSection(
+      1,
+      [
+        { nameField: "audio", value: idAudio },
+        {
+          nameField: "audio-order",
+          value: orden,
+        },
+      ],
+      1
+    );
     setLoading(true);
     setTimeout(() => {
-      setSections(3);
+      setSections(sections + 1);
       setLoading(false);
     }, 1000);
   };
 
   useEffect(() => {
-    updateCurrentSection(2);
+    updateCurrentSection(sections);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -47,7 +58,6 @@ export const Circles = ({ setSections }: Props) => {
           return response.json();
         })
         .then((data) => {
-          console.log("Datos recibidos:", data);
           setAudios(data?.audios);
         })
         .catch((error) => {
@@ -72,14 +82,14 @@ export const Circles = ({ setSections }: Props) => {
           {!loading && (
             <Grid container spacing={2}>
               {audios.length &&
-                audios?.map(({ id, nombre }) => (
+                audios?.map(({ id, nombre, orden }) => (
                   <Grid
                     key={id}
                     item
                     xs={12}
                     sm={12}
-                    md={4}
-                    lg={4}
+                    md={6}
+                    lg={3}
                     display={"flex"}
                     justifyContent="center"
                     alignItems={"center"}
@@ -87,7 +97,7 @@ export const Circles = ({ setSections }: Props) => {
                     <button
                       type="button"
                       className="circle border-0"
-                      onClick={() => handleClick(nombre)}
+                      onClick={() => handleClick(nombre, orden)}
                     >
                       {id}
                     </button>

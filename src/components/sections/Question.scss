@@ -1,10 +1,10 @@
 @import "../../assets/scss/colors.scss";
 
 .main-questions {
-  padding: 0 10%;
+  padding: 0% 10%;
 
   @media (max-width: 700px) {
-    padding: 0 2%;
+    padding: 2% 2%;
   }
   h2 {
     @media (max-width: 700px) {
@@ -12,6 +12,6 @@
     }
   }
   @media (max-width: 700px) {
-    padding: 0 2%;
+    padding: 2% 2%;
   }
 }

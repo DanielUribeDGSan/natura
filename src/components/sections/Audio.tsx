@@ -6,18 +6,18 @@ import "./Audio.scss";
 
 interface Props {
   setSections: React.Dispatch<React.SetStateAction<number>>;
+  sections: number;
 }
-export const Audio = ({ setSections }: Props) => {
+export const Audio = ({ setSections, sections }: Props) => {
   const { paymentData, updateCurrentSection } = usePaymentStorage(1);
-  console.log("paymentData", paymentData);
 
   useEffect(() => {
-    updateCurrentSection(3);
+    updateCurrentSection(sections);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClick = () => {
-    setSections(4);
+    setSections(sections + 1);
   };
 
   return (

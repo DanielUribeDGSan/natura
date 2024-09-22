@@ -35,10 +35,12 @@ interface Respuesta {
 export const Question = ({ setSections, sections, type = "uno" }: Props) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
+  const [selectedAnswerCorrect, setSelectedAnswerCorrect] = useState<number>(0);
   const [questions, setQuestions] = useState<Pregunta[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const { updateSection, updateCurrentSection } = usePaymentStorage(1);
+  const { updateSection, updateCurrentSection, paymentData } =
+    usePaymentStorage(1);
 
   useEffect(() => {
     updateCurrentSection(sections);
@@ -70,6 +72,22 @@ export const Question = ({ setSections, sections, type = "uno" }: Props) => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (type !== "uno") return;
+    if (paymentData) {
+      const questionAudio = paymentData.sections[0].fields.filter((field) =>
+        field.nameField.includes("audio-order")
+      );
+      if (questionAudio.length === 0) return;
+      const filterQuestion = questions.filter(
+        (q) => q.orden === questionAudio[0]?.value
+      );
+
+      setQuestions(filterQuestion || []);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paymentData, loading]);
 
   const handleAnswer = () => {
     if (selectedAnswer) {
@@ -115,6 +133,10 @@ export const Question = ({ setSections, sections, type = "uno" }: Props) => {
               nameField: `question-${type}-${currentQuestionIndex + 1}`,
               value: selectedAnswer,
             },
+            {
+              nameField: `question-correct-${type}`,
+              value: selectedAnswerCorrect.toString(),
+            },
           ],
           1
         );
@@ -134,8 +156,12 @@ export const Question = ({ setSections, sections, type = "uno" }: Props) => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    correct: number
+  ) => {
     setSelectedAnswer(e.target.value);
+    setSelectedAnswerCorrect(correct);
   };
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -157,7 +183,7 @@ export const Question = ({ setSections, sections, type = "uno" }: Props) => {
                     type="radio"
                     value={respuesta.respuesta}
                     name="answer"
-                    onChange={handleChange}
+                    onChange={(e) => handleChange(e, respuesta.correcta)}
                     checked={selectedAnswer === respuesta.respuesta}
                   />
                   <label htmlFor={String(respuesta.id)}>

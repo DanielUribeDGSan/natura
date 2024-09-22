@@ -227,6 +227,11 @@ h6 {
     color: color(theme, 1);
     background-color: white;
   }
+  input[type="checkbox"]:checked + label {
+    border: solid 0.125rem color(theme, 1);
+    color: color(theme, 1);
+    background-color: white;
+  }
 }
 .bg-image {
   position: absolute;

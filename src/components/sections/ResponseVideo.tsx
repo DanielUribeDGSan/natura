@@ -25,7 +25,6 @@ export const ResponseVideo = ({ setSections, sections }: Props) => {
   const videoFilter = paymentData?.sections[0]?.fields?.filter((field) =>
     field.nameField.includes("question-tres-2")
   );
-  console.log("titleFilter", titleFilter);
 
   return (
     <>

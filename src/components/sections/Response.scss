@@ -3,11 +3,11 @@
 .main-response {
   width: 100%;
   height: 100%;
-  position: relative;
   padding: 0 10%;
 
   @media (max-width: 700px) {
-    padding: 0 2%;
+    position: relative;
+    padding: 2% 2%;
     height: 75vh;
   }
   .center-content {

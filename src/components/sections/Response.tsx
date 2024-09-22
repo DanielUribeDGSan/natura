@@ -6,9 +6,11 @@ import "./Response.scss";
 interface Props {
   setSections: React.Dispatch<React.SetStateAction<number>>;
   title: string;
+  sections: number;
   subTitle?: string;
   buttonText?: string;
   isFinished?: boolean;
+  correctResponse?: boolean;
 }
 export const Response = ({
   setSections,
@@ -16,11 +18,13 @@ export const Response = ({
   subTitle,
   buttonText = "Siguiente",
   isFinished = false,
+  sections,
+  correctResponse = false,
 }: Props) => {
-  const { updateCurrentSection } = usePaymentStorage(1);
+  const { updateCurrentSection, paymentData } = usePaymentStorage(1);
 
   useEffect(() => {
-    updateCurrentSection(5);
+    updateCurrentSection(sections);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -32,14 +36,32 @@ export const Response = ({
     }
   };
 
+  const returnCorrect = () => {
+    const responseCorrect = paymentData?.sections[0]?.fields.filter((field) =>
+      field.nameField.includes("question-correct-uno")
+    );
+
+    if (responseCorrect) {
+      if (responseCorrect[0]?.value === "1") {
+        return "¡Correcto!";
+      } else {
+        return "¡Incorrecto!";
+      }
+    } else {
+      return "¡Incorrecto!";
+    }
+  };
+
   return (
     <>
       <div className="d-flex align-items-center justify-content-end container-logo">
         <Logo />
       </div>
-      <section className="main-response ">
+      <section className="main-response">
         <div className="center-content">
-          <h2 className="text-center">{title}</h2>
+          <h2 className="text-center">
+            {correctResponse ? returnCorrect() : title}
+          </h2>
           {subTitle && <h3 className="text-center">{subTitle}</h3>}
         </div>
 

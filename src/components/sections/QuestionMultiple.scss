@@ -1,0 +1,31 @@
+@import "../../assets/scss/colors.scss";
+
+.main-questions-multiple {
+  padding: 0 10%;
+
+  @media (max-width: 700px) {
+    padding: 2% 2%;
+  }
+  h2 {
+    @media (max-width: 700px) {
+      margin-top: 1rem !important;
+    }
+  }
+  @media (max-width: 700px) {
+    padding: 0 2%;
+  }
+  .center-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
