@@ -40,8 +40,8 @@ function App() {
           <Response
             sections={sections}
             setSections={setSections}
-            title="En Natura, nuestrxs Consultores se dividen en 4 arquetipos..."
-            subTitle="Presiona el botón y mira hacia tu izquierda."
+            title="¡Orgullosos de rendir homenaje a nuestro equipo de consultorxs en su día!"
+            subTitle="Presiona el botón y mira la pantalla de la izquierda"
             buttonText="Siguiente"
           />
         )}
