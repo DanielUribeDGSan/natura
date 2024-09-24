@@ -28,7 +28,7 @@ export const BannerFull = ({ setSections }: Props) => {
             type="button"
             onClick={handleClick}
           >
-            Iniciar la experiencia
+            Iniciar Challenge
           </button>
         </div>
       </section>

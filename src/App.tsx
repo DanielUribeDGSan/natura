@@ -40,8 +40,8 @@ function App() {
           <Response
             sections={sections}
             setSections={setSections}
-            title="¡Orgullosos de rendir homenaje a nuestro equipo de consultorxs en su día!"
-            subTitle="Presiona el botón y mira la pantalla de la izquierda"
+            title="¡Orgullosos de rendir homenaje a nuestrxs consultorxs en su día!"
+            subTitle="Colócate los audífonos y gira hacia la izquierda."
             buttonText="Siguiente"
           />
         )}
@@ -90,7 +90,7 @@ function App() {
           <Response
             sections={sections}
             setSections={setSections}
-            title="¡Felicidades! Has terminado con éxito la prueba."
+            title="¡Felicidades! Has terminado con éxito El Challenge."
             subTitle="Ahora que conoces más a fondo la labor de nuestrxs Consultorxs, te invitamos a continuar con la experiencia fuera de la cabina."
             buttonText="Terminar la experiencia"
             isFinished
