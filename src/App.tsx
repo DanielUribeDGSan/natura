@@ -84,9 +84,18 @@ function App() {
           <ResponseVideo setSections={setSections} sections={sections} />
         )}
         {sections === 12 && (
-          <QuestionMultiple setSections={setSections} sections={sections} />
+          <Response
+            sections={sections}
+            setSections={setSections}
+            title="Nuestrxs Consultorxs comparten belleza y bienestar a través de los productos Natura. ¿Y tú, cómo lo harías?"
+            subTitle="Gira a la derecha, toma un producto y experiméntalo."
+            buttonText="Siguiente"
+          />
         )}
         {sections === 13 && (
+          <QuestionMultiple setSections={setSections} sections={sections} />
+        )}
+        {sections === 14 && (
           <Response
             sections={sections}
             setSections={setSections}

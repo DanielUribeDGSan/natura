@@ -18,7 +18,7 @@ export const BannerFull = ({ setSections }: Props) => {
         <div className="w-100 h-100 d-flex align-items-end justify-content-center">
           <img
             className="img-fluid animate__animated animate__fadeInUp animate__delay-1s"
-            src="/assets/images/banners/banner2.webp"
+            src="/assets/images/banners/img_natura_experiencia.png"
             alt="banner"
           />
         </div>
@@ -28,7 +28,7 @@ export const BannerFull = ({ setSections }: Props) => {
             type="button"
             onClick={handleClick}
           >
-            Iniciar Challenge
+            Iniciar El Challenge
           </button>
         </div>
       </section>
